@@ -21,8 +21,7 @@ function getAllEventsCount() {
 
 function getSeestatsVisits() {
   $.ajax({
-      url: eventCountUrl,
-      json: {"filter": {"term": {"target": "https://seestats.org/game/smurfs" } }}
+      url: 'https://api.seestats.org/getTodayHits'
   }).done(function(data) {
       setCounter('#seestats-visits', data.count);
   });
