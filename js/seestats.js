@@ -39,8 +39,19 @@ function getTopTargets() {
   });
 }
 
+function getUniqueTargets()
+{
+  $.ajax({
+      url: 'https://api.seestats.org/getUniqueTargets'
+  }).done(function(data) {
+      setCounter('#unique-targets', data.count);
+  });
+}
+
 setInterval(function () {
   getAllEventsCount();
   getSeestatsVisits();
   getTopTargets();
+  getUniqueTargets();
+
 }, 500);
