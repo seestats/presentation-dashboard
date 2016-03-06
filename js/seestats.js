@@ -27,7 +27,20 @@ function getSeestatsVisits() {
   });
 }
 
+function getTopTargets() {
+  $.ajax({
+    url: 'https://api.seestats.org/getTopTargets'
+  }).done(function (data) {
+    $('.top-targets').html('');
+    $.each(data.count, function (key, value) {
+
+      $('.top-targets').append('<tr><td></td><td>' + value.key + '</td><td>' + value.doc_count + '</td></tr>')
+    });
+  });
+}
+
 setInterval(function () {
   getAllEventsCount();
   getSeestatsVisits();
+  getTopTargets();
 }, 500);
