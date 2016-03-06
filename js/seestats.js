@@ -53,8 +53,20 @@ function getAllTraffic()
   $.ajax({
       url: 'https://api.seestats.org/currentlyActiveConnection'
   }).done(function(data) {
-      console.log(data);
       setCounter('#seestats-traffic', data.count/1024/1024);
+  });
+}
+
+function getAllResponseCodes()
+{
+  $.ajax({
+    url: 'https://api.seestats.org/statusCodeList'
+  }).done(function (data) {
+    status_codes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', "Q"];
+    $('.top-status-codes').html('');
+    $.each(data.count, function (key, value) {
+      $('.top-status-codes').append('<tr><td></td><td>' + status_codes[key] + '</td><td>' + value.doc_count + '</td></tr>');
+    });
   });
 }
 
@@ -64,5 +76,6 @@ setInterval(function () {
   getTopTargets();
   getUniqueTargets();
   getAllTraffic();
+  getAllResponseCodes();
 
 }, 500);
