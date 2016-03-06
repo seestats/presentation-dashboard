@@ -1,0 +1,125 @@
+<html>
+	<head>
+		  <base href="http://www.highcharts.com/demo/dynamic-update" />
+
+  <style type="text/css">
+.container{width:100%}#hs-component{background-color:inherit;padding:0}#hs-component .container{padding:0;width:100%}#comp-menu{background-color:#252530;z-index:1;padding:0}#comp-menu .cont,.demo{padding:0 50px}#comp-menu h2,#comp-menu h2 a{color:#eeeaea;font-weight:lighter;text-transform:inherit}#comp-menu h2 a:hover{color:#8085e8}a.btn.btn-theme{color:#eeeaea;background-color:#34343e;border:1px solid #34343e;border-bottom:0;border-radius:0;font-weight:400;margin:0 5px 0 0}a.btn.btn-theme:hover{color:#90ef7f}a.btn.btn-theme.disabled{background-color:#FFF;color:#313131;opacity:1}.demo{background-color:#f6f6f6}.demo .demo-name{color:#313131;font-weight:lighter;text-transform:none;padding-left:15px;text-align:center;display:inline;margin:0 10px}#chart-switcher{text-align:center;padding:30px 0}.demo #chart-switcher #next-example,.demo #chart-switcher #previous-example{font-size:30px;padding:0 10px;color:#888}#demo-buttons{text-align:center;padding:30px 0}#demo-buttons a{background-color:#ddd}#demo-buttons a:hover{background-color:#40818b}.demo .chart-container{position:relative;background-color:#fff;padding:30px 0}.demo .chart-container #previous-example{position:absolute;top:50%;left:-30px;font-size:70px;color:#888}.demo .chart-container #next-example{position:absolute;top:50%;right:-30px;font-size:70px;color:#888}.sidebar-eq-fill{background-color:#f6f6f6}@media screen and (max-width:400px){#chart-switcher,.demo .chart-container,.sidebar-wrapper .sidebar-eq{padding:0}#small-switcher{text-align:center}.demo #chart-switcher #next-example,.demo #chart-switcher #previous-example{font-size:20px}#sidebar-close{position:absolute;top:0;left:0;background-color:#252530;color:#fff;border-radius:0;z-index:100;cursor:pointer;padding:10px;visibility:hidden}.toggled #sidebar-close{visibility:visible}}@media screen and (min-width:400px) and (max-width:768px){.demo{padding:15px}#sidebar-close{position:absolute;top:0;left:0;background-color:#252530;color:#fff;border-radius:0;z-index:100;cursor:pointer;padding:10px;visibility:hidden}.toggled #sidebar-close{visibility:visible}}
+#hs-below{background-color:#eeeaea;font-size:18px;line-height:26px}#hs-below h3{font-size:30px;line-height:30px;font-weight:bolder;margin-top:0;margin-bottom:15px}#hs-below p,ul{font-size:1pc}#hs-below .box{position:relative;background-color:#fff;padding:14px 22px}#hs-below .box .box-content{margin-bottom:40px}#hs-below .box .button{position:absolute;bottom:0;margin-bottom:10px}#hs-below .box.purple{border-bottom:8px solid #8085e8}#hs-below .box.green{border-bottom:8px solid #90ef7f}#hs-below .box .book{text-align:center}#hs-below .box .book img{max-height:200px}@media screen and (max-width:768px){#hs-below h3{margin-top:30px}#hs-below .box-1 h3{margin-top:0}#hs-below .box .book{text-align:left}}@media screen and (min-width:768px) and (max-width:992px){#hs-below h3{margin-top:30px}#hs-below .box-1 h3,#hs-below .box-2 h3{margin-top:0}#hs-below .box-1 .box,#hs-below .box-2 .box{min-height:260px}#hs-below .box-3 .box,#hs-below .box-4 .box{min-height:280px}}@media screen and (min-width:992px) and (max-width:1200px){#hs-below h3{margin-top:30px}#hs-below .box-1 h3,#hs-below .box-2 h3{margin-top:0}#hs-below .box-1 .box,#hs-below .box-2 .box{min-height:255px}#hs-below .box-3 .box,#hs-below .box-4 .box{min-height:280px}}@media screen and (min-width:1200px){#hs-below .box{min-height:390px}}
+#hs-bottom,#hs-bottom a{color:#eeeaea}#hs-bottom{background-color:#252530;font-size:1pc;line-height:20px}#hs-bottom a:focus,#hs-bottom a:hover{color:#90ef7f}#hs-bottom a.button{color:#313131}#hs-bottom a.button:focus,#hs-bottom a.button:hover{color:#eeeaea}#hs-bottom h3{font-size:24px;line-height:24px;font-weight:lighter}#hs-bottom h4{font-size:14px}#hs-bottom .grayed{color:#d6d1d1;margin:0}@media screen and (max-width:768px){#hs-bottom [class*=col-]{border-bottom:1px dotted #eeeaea;padding-bottom:15px}#hs-bottom [class*=col-]:nth-child(1) h3{margin-top:0}#hs-bottom [class*=col-]:last-child{border-bottom:0;padding-bottom:0}}@media screen and (min-width:768px) and (max-width:992px){#hs-bottom [class*=col-]{min-height:350px;border-right:1px dotted #eeeaea}#hs-bottom [class*=col-]:last-child,#hs-bottom [class*=col-]:nth-child(2){border-right:0}}@media screen and (min-width:992px) and (max-width:1200px){#hs-bottom [class*=col-]{min-height:300px;border-right:1px dotted #eeeaea}#hs-bottom [class*=col-]:last-child,#hs-bottom [class*=col-]:nth-child(2){border-right:0}}@media screen and (min-width:1200px){#hs-bottom [class*=col-]{min-height:25pc;border-right:1px dotted #eeeaea}#hs-bottom [class*=col-]:last-child{border-right:0}}
+  </style>
+  <script src="/joomla/media/com_demo/js/highslide-full.min.js" type="text/javascript"></script>
+  <script src="/joomla/media/com_demo/js/highslide.config.min.js" type="text/javascript"></script>
+  <script src="/lib/jquery-1.7.2.js" type="text/javascript"></script>
+  <script src="/joomla/media/templates/highsoft_bootstrap/js/bootstrap.js" type="text/javascript"></script>
+  <script src="/joomla/media/templates/highsoft_bootstrap/js/modernizr.js" type="text/javascript"></script>
+  <script src="/joomla/media/templates/highsoft_bootstrap/js/script.js" type="text/javascript"></script>
+  <script src="http://es.seestats.org:3000/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+jQuery.noConflict();
+
+var example = 'dynamic-update',
+theme = 'default';
+
+var liveData = [];
+
+var socket = io.connect('http://es.seestats.org:3000/');
+socket.emit('get_event_count');
+socket.on('event_count', function (data) {
+  liveData.push(data);
+});
+
+
+(function($){ // encapsulate jQuery
+	$(function () {
+    $(document).ready(function () {
+        Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
+
+        $('#container').highcharts({
+            chart: {
+                type: 'spline',
+                animation: Highcharts.svg, // don't animate in old IE
+                marginRight: 10,
+                events: {
+                    load: function () {
+
+                        // set up the updating of the chart each second
+                        var series = this.series[0];
+                        setInterval(function () {
+                            var x = (new Date()).getTime(); // current time
+                            var y = liveData[0];
+                            liveData.shift();
+
+                            series.addPoint([x, y], true, true);
+                        }, 2000);
+                    }
+                }
+            },
+            title: {
+                text: 'Live random data'
+            },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 150
+            },
+            yAxis: {
+                title: {
+                    text: 'Value'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                        Highcharts.numberFormat(this.y, 2);
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            exporting: {
+                enabled: false
+            },
+            series: [{
+                name: 'Total Events',
+                data: (function () {
+                    // generate an array of random data
+                    var data = [],
+                        time = (new Date()).getTime(),
+                        i;
+
+                    for (i = -19; i <= 0; i += 1) {
+                        data.push({
+                            x: time + i * 1000,
+                            y: 0
+                        });
+                    }
+                    return data;
+                }())
+            }]
+        });
+    });
+});
+})(jQuery);
+jQuery(document).ready(function(){jQuery("#view-menu").click(function(e){jQuery("#wrap").toggleClass("toggled")}),jQuery("#sidebar-close").click(function(e){jQuery("#wrap").removeClass("toggled")}),jQuery(document).keydown(function(e){var t;"INPUT"!=e.target.tagName&&(39==e.keyCode?t=document.getElementById("next-example"):37==e.keyCode&&(t=document.getElementById("previous-example")),t&&(location.href=t.href))}),jQuery("#switcher-selector").bind("change",function(){var e=jQuery(this).val();return e&&(window.location=e),!1})});
+  </script>
+	</head>
+	<body>
+
+		<div class="chart-container">
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+					</div>
+
+	</body>
+</html>
