@@ -48,10 +48,21 @@ function getUniqueTargets()
   });
 }
 
+function getAllTraffic()
+{
+  $.ajax({
+      url: 'https://api.seestats.org/currentlyActiveConnection'
+  }).done(function(data) {
+      console.log(data);
+      setCounter('#seestats-traffic', data.count/1024/1024);
+  });
+}
+
 setInterval(function () {
   getAllEventsCount();
   getSeestatsVisits();
   getTopTargets();
   getUniqueTargets();
+  getAllTraffic();
 
 }, 500);

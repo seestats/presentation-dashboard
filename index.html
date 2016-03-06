@@ -182,7 +182,7 @@
 				</div>
 			</div>
 
-            <div class="row">
+      <div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 					<div class="info-box blue-bg">
 						<div class="count" id="all-events">0</div>
@@ -191,7 +191,7 @@
 				</div><!--/.col-->
 
 				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-					<div class="info-box brown-bg">
+					<div class="info-box red-bg">
 						<div class="count" id="seestats-visits">0</div>
 						<div class="title">seestats.org Visits</div>
 					</div><!--/.info-box-->
@@ -206,13 +206,18 @@
 
 				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 					<div class="info-box green-bg">
-						<i class="fa fa-cubes"></i>
-						<div class="count">1.426</div>
-						<div class="title">Stock</div>
+						<div class="count" id="seestats-traffic">0</div>MB
+						<div class="title">Transferred through the servers in the last hour</div>
 					</div><!--/.info-box-->
 				</div><!--/.col-->
 
 			</div><!--/.row-->
+
+      <div class='row'>
+        <div class="col-sm-12">
+          <iframe style="border: none" width="1160" height="450" src="/live_stats.html"></iframe>
+        </div>
+      </div>
 
       <div class="row">
 
@@ -243,81 +248,10 @@
 
         </div><!--/col-->
         <div class="col-md-3">
-
-          <div class="social-box facebook">
-            <i class="fa fa-facebook"></i>
-            <ul>
-              <li>
-                <strong>256k</strong>
-                <span>friends</span>
-              </li>
-              <li>
-                <strong>359</strong>
-                <span>feeds</span>
-              </li>
-            </ul>
-          </div><!--/social-box-->
-        </div>
-        <div class="col-md-3">
-
-          <div class="social-box google-plus">
-            <i class="fa fa-google-plus"></i>
-            <ul>
-              <li>
-                <strong>962</strong>
-                <span>followers</span>
-              </li>
-              <li>
-                <strong>256</strong>
-                <span>circles</span>
-              </li>
-            </ul>
-          </div><!--/social-box-->
-
-        </div><!--/col-->
-        <div class="col-md-3">
-
-          <div class="social-box twitter">
-            <i class="fa fa-twitter"></i>
-            <ul>
-              <li>
-                <strong>1562k</strong>
-                <span>followers</span>
-              </li>
-              <li>
-                <strong>2562</strong>
-                <span>tweets</span>
-              </li>
-            </ul>
-          </div><!--/social-box-->
-
-        </div><!--/col-->
-
-              </div>
-
-           <div class="row">
-		    <div class="col-lg-9 col-md-12">
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h2><i class="fa fa-map-marker red"></i><strong>Countries</strong></h2>
-							<div class="panel-actions">
-								<a href="index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
-								<a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-								<a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
-							</div>
-						</div>
-						<div class="panel-body-map">
-							<div id="map" style="height:380px;"></div>
-						</div>
-
-					</div>
-				</div>
-              <div class="col-md-3">
               <!-- List starts -->
-				<ul class="today-datas">
+        <ul class="today-datas">
                 <!-- List #1 -->
-				<li>
+        <li>
                   <!-- Graph -->
                   <div><span id="todayspark1" class="spark"></span></div>
                   <!-- Text -->
@@ -340,7 +274,27 @@
                   <div class="datas-text">12,000000 visitors every Month</div>
                 </li>
               </ul>
+        </div>
               </div>
+
+           <div class="row">
+		    <div class="col-lg-9 col-md-12">
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2><i class="fa fa-map-marker red"></i><strong>Countries</strong></h2>
+							<div class="panel-actions">
+								<a href="index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
+								<a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+								<a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<div class="panel-body-map">
+							<div id="map" style="height:380px;"></div>
+						</div>
+
+					</div>
+				</div>
 
 
            </div>
