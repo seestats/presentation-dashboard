@@ -19,4 +19,16 @@ function getAllEventsCount() {
   });
 }
 
-setInterval(getAllEventsCount, 500);
+function getSeestatsVisits() {
+  $.ajax({
+      url: eventCountUrl,
+      json: {"filter": {"term": {"target": "https://seestats.org/game/smurfs" } }}
+  }).done(function(data) {
+      setCounter('#seestats-visits', data.count);
+  });
+}
+
+setInterval(function () {
+  getAllEventsCount();
+  getSeestatsVisits();
+}, 500);
