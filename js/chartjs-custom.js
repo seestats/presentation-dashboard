@@ -1,135 +1,70 @@
 $(document).ready(function() {
 
-
-    var doughnutData = [
-        {
-            value: 30,
-            color:"#F7464A"
-        },
-        {
-            value : 50,
-            color : "#46BFBD"
-        },
-        {
-            value : 100,
-            color : "#FDB45C"
-        },
-        {
-            value : 40,
-            color : "#949FB1"
-        },
-        {
-            value : 120,
-            color : "#4D5360"
-        }
-
-    ];
-    var lineChartData = {
-        labels : ["","","","","","",""],
-        datasets : [
-            {
-                fillColor : "rgba(220,220,220,0.5)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
-                pointStrokeColor : "#fff",
-                data : [65,59,90,81,56,55,40]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                pointColor : "rgba(151,187,205,1)",
-                pointStrokeColor : "#fff",
-                data : [28,48,40,19,96,27,100]
-            }
-        ]
-
-    };
     var pieData = [
         {
             value: 30,
-            color: "#FF0000",
-            label: 'Red team',
-            labelColor : '#000',
-            labelFontSize : '16'
+            color: "#3277b3",
         },
         {
             value : 50,
-            color : "#E0E4CC"
+            color : "#5cb85c"
         },
         {
             value : 100,
-            color : "#69D2E7"
+            color : "#d9534f"
         }
 
     ];
-    var barChartData = {
-        labels : ["January","February","March","April","May","June","July"],
-        datasets : [
-            {
-                fillColor : "rgba(220,220,220,0.5)",
-                strokeColor : "rgba(220,220,220,1)",
-                data : [65,59,90,81,56,55,40]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                data : [28,48,40,19,96,27,100]
-            }
-        ]
 
-    };
-    var chartData = [
-        {
-            value : Math.random(),
-            color: "#D97041"
-        },
-        {
-            value : Math.random(),
-            color: "#C7604C"
-        },
-        {
-            value : Math.random(),
-            color: "#21323D"
-        },
-        {
-            value : Math.random(),
-            color: "#9D9B7F"
-        },
-        {
-            value : Math.random(),
-            color: "#7D4F6D"
-        },
-        {
-            value : Math.random(),
-            color: "#584A5E"
-        }
-    ];
-    var radarChartData = {
-        labels : ["","","","","","",""],
-        datasets : [
-            {
-                fillColor : "rgba(220,220,220,0.5)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
-                pointStrokeColor : "#fff",
-                data : [65,59,90,81,56,55,40]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                pointColor : "rgba(151,187,205,1)",
-                pointStrokeColor : "#fff",
-                data : [28,48,40,19,96,27,100]
-            }
-        ]
+    var pieChartReal = new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
 
-    };
-    // new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData);
-    // new Chart(document.getElementById("line").getContext("2d")).Line(lineChartData);
-    // new Chart(document.getElementById("radar").getContext("2d")).Radar(radarChartData);
-    // new Chart(document.getElementById("polarArea").getContext("2d")).PolarArea(chartData);
-    // new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
-    new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
+    chartUpdate();
 
-
+    setInterval(function() {
+        chartUpdate();
+    }, 500);
 });
+
+    function chartUpdate()
+    {
+
+        $.get(
+            'http://api.seestats.org/game/smurfs',
+            function (data) {
+                var smurfs = data.count;
+
+                $.get('http://api.seestats.org/game/matrix',
+                    function (data) {
+                        var matrix = data.count;
+
+                        $.get('http://api.seestats.org/game/hackers',
+                            function (data) {
+                                var hackers = data.count;
+                                        $('#pie').replaceWith('<canvas id="pie" height="400" width="600" style="width: 600px; height: 400px; float: left; display: inline"></canvas>');
+
+                                        $('.smurf-count').html(smurfs);
+                                        $('.matrix-count').html(matrix);
+                                        $('.hacker-count').html(hackers);
+
+                                        var ctx = $('#pie').get(0).getContext("2d");
+                                        new Chart(ctx).Pie([
+                                            {
+                                                value: smurfs,
+                                                color: "#3277b3",
+                                            },
+                                            {
+                                                value : matrix,
+                                                color : "#5cb85c"
+                                            },
+                                            {
+                                                value : hackers,
+                                                color : "#d9534f"
+                                            }
+                                        ], {
+                                        animation: false
+                                        });
+                        }, "json");
+                    }, "json");
+        }, "json");
+
+    }
